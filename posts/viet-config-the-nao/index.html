@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Viết config thế nào?</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+
+    <!-- Social & Open Graph -->
+    <meta property="fb:app_id" content="633130997025507" />
+    <meta property="og:title" content="Viết config thế nào?" />
+<meta property="og:description" content="Tuần rồi mình được 2 người, ở 2 nơi khác nhau hỏi về chuyện viết config cho một ứng dụng, mình chợt nhận ra rằng việc tổ chức config cho một ứng dụng nhiều khi không đơn giản như chúng ta tưởng tượng, cái chính là không phải là cái config đó chạy được không, mà cơ bản là làm đúng hay không nữa." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://5kbps.io/posts/viet-config-the-nao/" />
+<meta property="og:image" content="https://5kbps.io/posts/viet-config-the-nao/images/config.jpeg" />
+<meta property="article:published_time" content="2018-09-30T17:17:03&#43;07:00"/>
+<meta property="article:modified_time" content="2018-09-30T17:17:03&#43;07:00"/><meta property="og:site_name" content="5kbps.io" />
+
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    <link rel="stylesheet" href="https://5kbps.io/sass/styles.min.f95ca48fb3978b35962293242108cd3020652379a8b6cc0886f1c5b06ad27288.css">
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://5kbps.io/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://5kbps.io/favicon.ico">
+    
+  </head>
+  <body>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <header class="header" id="top">
+    <section class="social">
+        <a href="https://5kbps.io/" title="Home">
+            <i class="fa fa-2x fa-fw fa-home"></i>
+            <span class="hidden">5kbps.io</span>
+        </a>&nbsp;
+        
+        <a href="//twitter.com/duythinht" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+        
+        
+        
+        
+        <a href="//www.facebook.com/duythinht" target="_blank" title="Facebook"><i class="fa fa-2x fa-fw fa-facebook"></i> <span class="hidden">Facebook</span></a>&nbsp;
+        
+        
+        <a href="//www.instagram.com/duythinht" target="_blank" title="Instagram"><i class="fa fa-2x fa-fw fa-instagram"></i> <span class="hidden">Instagram</span></a>&nbsp;
+        
+        
+        <a href="//github.com/duythinht" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+        
+        
+        
+        
+    </section></header>
+
+            <div class="content">
+                
+<article class="post">
+    <header>
+        <h1 class="post-title">Viết config thế nào?</h1>
+        <div class="post-meta">
+            <time datetime="30 September 2018">
+                30 September 2018
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>Tuần rồi mình được 2 người, ở 2 nơi khác nhau hỏi về chuyện viết config cho một ứng dụng, mình chợt nhận ra rằng việc tổ chức config cho một ứng dụng nhiều khi không đơn giản như chúng ta tưởng tượng, cái chính là không phải là cái config đó chạy được không, mà cơ bản là làm đúng hay không nữa.</p>
+
+<h2 id="the-twelve-factor-app">The twelve-factor app</h2>
+
+<p>Về cơ bản thì đây là một methodology để build software-as-a-service, lý do tại sao xài thì mọi người có thể đọc <a href="https://12factor.net/"><strong>tại đây</strong></a>, mà bài này chỉ nói về config nên chúng ta chỉ quan tâm đến section 3 của nó:</p>
+
+<blockquote>
+<p><strong>III. Config</strong></p>
+
+<p>Store config in the environment</p>
+</blockquote>
+
+<p>Ý tưởng cơ bản thì bạn sẽ lưu config tại biến môi trường (env), đại loại như <code>DATABASE_HOSTNAME</code>, một khi bạn thực hiện điều này nó sẽ giúp bạn có một số lợi ích sau đây:</p>
+
+<ul>
+<li>App của bạn có thể thay đổi config một cách dễ dàng, sửa env và restart, bạn không cần quan tâm nhiều điều config ở đâu, khai báo thế nào.</li>
+<li>App buộc phải restart lại mới load config mới, tất nhiên là vậy trừ phi ngay trong chính process của bạn tự override lại env</li>
+<li>Các deploy management hiện tại đều hỗ trợ config bằng env như một phương thức mặc định. AWS, Heroku, K8s&hellip;</li>
+<li>Config được stored từ các nơi khác dễ dàng có thể manipulate thành env chỉ với vài lệnh shell script (bạn có thể store config trong etcd, kms hoặc các secret vault và transform nó thành env)</li>
+<li>Env có thể bundle trong deployment thành các revision, rollback trong vòng 1 nốt nhạc.</li>
+</ul>
+
+<h2 id="implements">Implements</h2>
+
+<pre><code>databaseHostname := os.Getenv(&quot;DATABASE_HOSTNAME&quot;)
+
+if databaseHostname == &quot;&quot; {
+    databaseHostname = defaultDatabaseHostname
+}
+</code></pre>
+
+<p>Oh yeah, trông có vẻ đúng tinh thần của 12-factor đó, tuy nhiên cách này không có maintainable và extendsible. Thay vào đó đối với Go bạn có thể dùng 2 package là viper và cobra để bắt đầu, có người build sẵn rồi thì ta cứ xài thôi ahjhj.</p>
+
+<h4 id="tạo-một-cái-app">Tạo một cái app</h4>
+
+<p>Giả sử tạo một application có cấu trúc như sau</p>
+
+<pre><code>/workspace
+└── src
+    └── duythinht
+        └── 5kbps.io
+            ├── cmd
+            │   ├── config.go
+            │   ├── config_test.go
+            │   └── main.go
+            ├── docs.go
+            └── let_it.go
+</code></pre>
+
+<p>Chúng ta chỉ quan tâm đến nội dung trong <code>cmd</code> thôi, còn những cái còn lại tùy bạn. Đầu tiên chúng ta cần khai báo một struct cho config đã, lấy ví dụ config của chúng ta đơn giản chỉ có thông tin DB</p>
+
+<pre><code>// config.go
+package main
+
+var config struct {
+    Database struct {
+        Hostname string
+        Username string
+        Password string
+    }
+}
+</code></pre>
+
+<p>Viết một cái test đơn giản cho config</p>
+
+<pre><code>// config_test.go
+package main
+
+import &quot;testing&quot;
+
+func TestDefaultConfigValue(t *testing.T) {
+	initConfig()
+	if config.Database.Hostname != &quot;localhost&quot; {
+		t.Fatalf(&quot;Host must be 'localhost', got %s&quot;, config.Database.Hostname)
+	}
+
+	if config.Database.Username != &quot;root&quot; {
+		t.Fatalf(&quot;Username must be 'root', got %s&quot;, config.Database.Username)
+	}
+
+	if config.Database.Password != &quot;khongbiet&quot; {
+		t.Fatalf(&quot;Password must be 'khongbiet', got %s&quot;, config.Database.Password)
+	}
+}
+</code></pre>
+
+<h4 id="working-with-default-config">Working with default config</h4>
+
+<p>Bước đầu tiên phải implements cho initConfig nó khởi tạo default config đã</p>
+
+<pre><code>// config.go
+
+// default config in buffer
+var configDefault = []byte(`
+[database]
+	hostname = &quot;localhost&quot;
+	username = &quot;root&quot;
+	password = &quot;khongbiet&quot;
+`)
+
+func initConfig() {
+	viper.SetConfigType(&quot;toml&quot;)
+	viper.ReadConfig(bytes.NewBuffer(configDefault))
+	viper.Unmarshal(&amp;config)
+}
+</code></pre>
+
+<p>Trong trường hợp của mình thì mình thích dùng <code>toml</code> format để định nghĩa config content, các bạn có thể dùng yaml, json hay props cũng được. Một số bạn sẽ hỏi là tại sao mình lại để config trong buffer mà không tách ra một file riêng, thật ra lý do đơn giản là vì khi distribute mình chỉ muốn ship 1 file binary duy nhất thôi, thay vì phải ship thêm một file config nữa, ngoài ra cái buffer sẽ có tác dụng về sau.</p>
+
+<h4 id="load-config-từ-environment-var">Load config từ environment var</h4>
+
+<p>Đoạn code trên chạy <code>go test</code> cơ bản là sẽ pass, nhưng mình muốn load config từ env cơ mà.</p>
+
+<pre><code>func TestLoadConfigFromEnv(t *testing.T) {
+	os.Setenv(&quot;DATABASE_HOSTNAME&quot;, &quot;5kbps.io&quot;)
+	initConfig()
+
+	if config.Database.Hostname != &quot;5kbps.io&quot; {
+		t.Fatalf(&quot;Host must be '5kbps.io', got %s&quot;, config.Database.Hostname)
+	}
+}
+</code></pre>
+
+<p>Và thêm <code>AutomaticEnv</code> vào initConfig</p>
+
+<pre><code>func initConfig() {
+	viper.SetConfigType(&quot;toml&quot;)
+	viper.ReadConfig(bytes.NewBuffer(configDefault))
+
+	// Load config from env
+	viper.SetEnvKeyReplacer(strings.NewReplacer(&quot;.&quot;, &quot;_&quot;))
+	viper.AutomaticEnv()
+
+	viper.Unmarshal(&amp;config)
+}
+</code></pre>
+
+<p>Với các service cơ bản thì bạn chỉ cần dừng ở đây là chạy ngon lành cành đào rồi. Tuy nhiên nếu có yêu cầu phức tạp hơn có thể đọc tiếp.</p>
+
+<h4 id="load-config-từ-third-party">Load config từ third party</h4>
+
+<p>3rd-party ở đây là chỉ đến dùng file để config hoặc dùng etcd, aws ssm, gcp params store&hellip; Ở đây mình chỉ ví dụ là dùng file, các trường hợp khác bạn có thể tự nghiên cứu implements</p>
+
+<pre><code>// main.go
+
+package main
+
+import (
+	&quot;bytes&quot;
+	&quot;fmt&quot;
+
+	&quot;github.com/spf13/cobra&quot;
+)
+
+var (
+	configFile string
+)
+
+func main() {
+
+	cobra.OnInitialize(initConfig)
+
+	rootCmd := &amp;cobra.Command{
+		Use:   &quot;5kbps&quot;,
+		Short: &quot;5kbps is a very slow connection&quot;,
+		Long:  `A very fast blog for slow connection built with love by duythinht and friends.
+            Donate me for a food at https://5kbps.io`,
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Printf(&quot;Config is %+v\n&quot;, config)
+		},
+	}
+
+	rootCmd.PersistentFlags().StringVar(&amp;configFile, &quot;config&quot;, &quot;&quot;, &quot;Path to config file&quot;)
+
+	generateConfigCmd := &amp;cobra.Command{
+		Use:   &quot;generate-config&quot;,
+		Short: &quot;Generate default config&quot;,
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Printf(&quot;%s&quot;, bytes.TrimSpace(configDefault))
+		},
+	}
+
+	rootCmd.AddCommand(generateConfigCmd)
+
+	rootCmd.Execute()
+}
+</code></pre>
+
+<p>Như mình đã nói, cái <code>defaultConfig</code> bây giờ mình có thể dùng để generate default config file(tránh mấy thanh niên tự tạo ra bị sai)
+Và sửa lại hàm <code>initConfig</code> để load config từ file nếu flags config được spec</p>
+
+<pre><code>func initConfig() {
+	viper.SetConfigType(&quot;toml&quot;)
+
+	viper.ReadConfig(bytes.NewBuffer(configDefault))
+
+	// Load config from file if posible
+	if configFile != &quot;&quot; {
+		viper.SetConfigFile(configFile)
+		viper.ReadInConfig()
+	}
+
+	// Load config from env
+	viper.SetEnvKeyReplacer(strings.NewReplacer(&quot;.&quot;, &quot;_&quot;))
+	viper.AutomaticEnv()
+
+	viper.Unmarshal(&amp;config)
+}
+</code></pre>
+
+<p>Compile toàn bộ rồi chạy thôi</p>
+
+<pre><code>$ go build -o 5kbps.io ./
+$ ./5kbps.io help
+A very fast blog for slow connection built with love by duythinht and friends.
+Donate me for a food at https://5kbps.io
+
+Usage:
+  5kbps [flags]
+  5kbps [command]
+
+Available Commands:
+  generate-config Generate default config
+  help            Help about any command
+
+Flags:
+      --config string   Path to config file
+  -h, --help            help for 5kbps
+
+Use &quot;5kbps [command] --help&quot; for more information about a command.
+$ ./5kbps.io
+Config is {Database:{Hostname:localhost Username:root Password:khongbiet}}
+$ ./5kbps.io generate-config &gt; test-config.toml
+$ vim test-config.toml # edit config file
+$ cat test-config.toml
+[database]
+	hostname = &quot;duythinht.io&quot;
+	username = &quot;root&quot;
+	password = &quot;khongbiet&quot;
+$ ./5kbps.io --config test-config.toml
+Config is {Database:{Hostname:duythinht.io Username:root Password:khongbiet}}
+</code></pre>
+
+<h4 id="chốt">Chốt</h4>
+
+<p>Bài viết này có giúp tôi hết thất nghiệp không? Thành thật mà nói thì không, trong những ngày tháng đói há mồm, bị hỏi nhiều quá nên tôi mới viết bài này, hi vọng có thanh niên nào thấy hay thì tuyển tôi về làm ku li cũng được.</p>
+
+    </section>
+    
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://5kbps.io/tags/config">#config </a>
+            
+                
+                <a href="https://5kbps.io/tags/go">#go </a>
+            
+                
+                <a href="https://5kbps.io/tags/viper">#viper </a>
+            
+                
+                <a href="https://5kbps.io/tags/cobra">#cobra </a>
+            
+        </div>
+    </section>
+    
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "5kbps" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <section class="share">
+    <p class="back-to-top"><a data-scroll href="#top"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll href="#top"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=Vi%e1%ba%bft%20config%20th%e1%ba%bf%20n%c3%a0o%3f&url=https%3a%2f%2f5kbps.io%2fposts%2fviet-config-the-nao%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2f5kbps.io%2fposts%2fviet-config-the-nao%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2f5kbps.io%2fposts%2fviet-config-the-nao%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <section class="author">
+    <div class="author-image" style="background: url(https://5kbps.io/images/avatar.jpg)"></div>
+    <h4>Thinh Tran</h4>
+    <p class="bio">Coder, Biker and Photographer</p>
+    <p class="meta">
+      
+    </p>
+</section>
+
+</article>
+</div>
+        </div>
+        <section class="copyright">&copy; 2019 <a href="https://5kbps.io/">Thinh Tran</a>. Released under the MIT license.</section>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-118367540-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    </div>
+</body>
+</html>

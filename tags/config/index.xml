@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Config on 5 Kilobytes per Second - Thinh Tran</title>
+    <link>https://5kbps.io/tags/config/</link>
+    <description>Recent content in Config on 5 Kilobytes per Second - Thinh Tran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Sep 2018 17:17:03 +0700</lastBuildDate>
+    
+	<atom:link href="https://5kbps.io/tags/config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Viết config thế nào?</title>
+      <link>https://5kbps.io/posts/viet-config-the-nao/</link>
+      <pubDate>Sun, 30 Sep 2018 17:17:03 +0700</pubDate>
+      
+      <guid>https://5kbps.io/posts/viet-config-the-nao/</guid>
+      <description>Tuần rồi mình được 2 người, ở 2 nơi khác nhau hỏi về chuyện viết config cho một ứng dụng, mình chợt nhận ra rằng việc tổ chức config cho một ứng dụng nhiều khi không đơn giản như chúng ta tưởng tượng, cái chính là không phải là cái config đó chạy được không, mà cơ bản là làm đúng hay không nữa.
+The twelve-factor app Về cơ bản thì đây là một methodology để build software-as-a-service, lý do tại sao xài thì mọi người có thể đọc tại đây, mà bài này chỉ nói về config nên chúng ta chỉ quan tâm đến section 3 của nó:</description>
+    </item>
+    
+  </channel>
+</rss>

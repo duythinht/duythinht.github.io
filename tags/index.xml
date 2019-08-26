@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 5 Kilobytes per Second - Thinh Tran</title>
+    <link>https://5kbps.io/tags/</link>
+    <description>Recent content in Tags on 5 Kilobytes per Second - Thinh Tran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Sep 2018 17:17:03 +0700</lastBuildDate>
+    
+	<atom:link href="https://5kbps.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cobra</title>
+      <link>https://5kbps.io/tags/cobra/</link>
+      <pubDate>Sun, 30 Sep 2018 17:17:03 +0700</pubDate>
+      
+      <guid>https://5kbps.io/tags/cobra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Config</title>
+      <link>https://5kbps.io/tags/config/</link>
+      <pubDate>Sun, 30 Sep 2018 17:17:03 +0700</pubDate>
+      
+      <guid>https://5kbps.io/tags/config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Engineer</title>
+      <link>https://5kbps.io/tags/engineer/</link>
+      <pubDate>Mon, 14 May 2018 09:44:06 +0700</pubDate>
+      
+      <guid>https://5kbps.io/tags/engineer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://5kbps.io/tags/go/</link>
+      <pubDate>Sun, 30 Sep 2018 17:17:03 +0700</pubDate>
+      
+      <guid>https://5kbps.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random</title>
+      <link>https://5kbps.io/tags/random/</link>
+      <pubDate>Sun, 29 Apr 2018 17:48:21 +0700</pubDate>
+      
+      <guid>https://5kbps.io/tags/random/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scientist</title>
+      <link>https://5kbps.io/tags/scientist/</link>
+      <pubDate>Sun, 29 Apr 2018 17:48:21 +0700</pubDate>
+      
+      <guid>https://5kbps.io/tags/scientist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Viper</title>
+      <link>https://5kbps.io/tags/viper/</link>
+      <pubDate>Sun, 30 Sep 2018 17:17:03 +0700</pubDate>
+      
+      <guid>https://5kbps.io/tags/viper/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

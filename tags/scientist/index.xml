@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scientist on 5 Kilobytes per Second - Thinh Tran</title>
+    <link>https://5kbps.io/tags/scientist/</link>
+    <description>Recent content in Scientist on 5 Kilobytes per Second - Thinh Tran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Apr 2018 17:48:21 +0700</lastBuildDate>
+    
+	<atom:link href="https://5kbps.io/tags/scientist/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Engineer và scientist</title>
+      <link>https://5kbps.io/posts/engineer-va-scientist/</link>
+      <pubDate>Sun, 29 Apr 2018 17:48:21 +0700</pubDate>
+      
+      <guid>https://5kbps.io/posts/engineer-va-scientist/</guid>
+      <description>“I am not a visionary. I&amp;rsquo;m an engineer. I&amp;rsquo;m happy with the people who are wandering around looking at the stars but I am looking at the ground and I want to fix the pothole before I fall in.” ― Linus Torvalds
+Chuyện ngày hôm ấy Đợt vừa rồi lúc còn làm việc ở công ty C nọ, vô tình mình được một dịp phỏng vấn một bạn fresher apply vào một vị trí của team data.</description>
+    </item>
+    
+  </channel>
+</rss>

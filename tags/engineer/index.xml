@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Engineer on 5 Kilobytes per Second - Thinh Tran</title>
+    <link>https://5kbps.io/tags/engineer/</link>
+    <description>Recent content in Engineer on 5 Kilobytes per Second - Thinh Tran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 May 2018 09:44:06 +0700</lastBuildDate>
+    
+	<atom:link href="https://5kbps.io/tags/engineer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tại sao bạn nên học code Go?</title>
+      <link>https://5kbps.io/posts/tai-sao-ban-nen-hoc-go/</link>
+      <pubDate>Mon, 14 May 2018 09:44:06 +0700</pubDate>
+      
+      <guid>https://5kbps.io/posts/tai-sao-ban-nen-hoc-go/</guid>
+      <description>Tôi có thằng bạn, thời đi học lúc tôi học Java thì nó học C#, sau ra đường kiếm sống tôi xài Python thì nó nhập hội Ruby. Gần đây thấy bảo nó lại âm thầm dụ dỗ người ta về &amp;ldquo;Hội thánh đức chúa Elixir&amp;rdquo;. Mà thực ra tôi nói vòng vo vậy thôi chứ mục đích của tôi khi viết bài này là dụ mọi người học Go.</description>
+    </item>
+    
+    <item>
+      <title>Engineer và scientist</title>
+      <link>https://5kbps.io/posts/engineer-va-scientist/</link>
+      <pubDate>Sun, 29 Apr 2018 17:48:21 +0700</pubDate>
+      
+      <guid>https://5kbps.io/posts/engineer-va-scientist/</guid>
+      <description>“I am not a visionary. I&amp;rsquo;m an engineer. I&amp;rsquo;m happy with the people who are wandering around looking at the stars but I am looking at the ground and I want to fix the pothole before I fall in.” ― Linus Torvalds
+Chuyện ngày hôm ấy Đợt vừa rồi lúc còn làm việc ở công ty C nọ, vô tình mình được một dịp phỏng vấn một bạn fresher apply vào một vị trí của team data.</description>
+    </item>
+    
+  </channel>
+</rss>

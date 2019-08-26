@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 5 Kilobytes per Second - Thinh Tran</title>
+    <link>https://5kbps.io/posts/</link>
+    <description>Recent content in Posts on 5 Kilobytes per Second - Thinh Tran</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Sep 2018 17:17:03 +0700</lastBuildDate>
+    
+	<atom:link href="https://5kbps.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Viết config thế nào?</title>
+      <link>https://5kbps.io/posts/viet-config-the-nao/</link>
+      <pubDate>Sun, 30 Sep 2018 17:17:03 +0700</pubDate>
+      
+      <guid>https://5kbps.io/posts/viet-config-the-nao/</guid>
+      <description>Tuần rồi mình được 2 người, ở 2 nơi khác nhau hỏi về chuyện viết config cho một ứng dụng, mình chợt nhận ra rằng việc tổ chức config cho một ứng dụng nhiều khi không đơn giản như chúng ta tưởng tượng, cái chính là không phải là cái config đó chạy được không, mà cơ bản là làm đúng hay không nữa.
+The twelve-factor app Về cơ bản thì đây là một methodology để build software-as-a-service, lý do tại sao xài thì mọi người có thể đọc tại đây, mà bài này chỉ nói về config nên chúng ta chỉ quan tâm đến section 3 của nó:</description>
+    </item>
+    
+    <item>
+      <title>Tại sao bạn nên học code Go?</title>
+      <link>https://5kbps.io/posts/tai-sao-ban-nen-hoc-go/</link>
+      <pubDate>Mon, 14 May 2018 09:44:06 +0700</pubDate>
+      
+      <guid>https://5kbps.io/posts/tai-sao-ban-nen-hoc-go/</guid>
+      <description>Tôi có thằng bạn, thời đi học lúc tôi học Java thì nó học C#, sau ra đường kiếm sống tôi xài Python thì nó nhập hội Ruby. Gần đây thấy bảo nó lại âm thầm dụ dỗ người ta về &amp;ldquo;Hội thánh đức chúa Elixir&amp;rdquo;. Mà thực ra tôi nói vòng vo vậy thôi chứ mục đích của tôi khi viết bài này là dụ mọi người học Go.</description>
+    </item>
+    
+    <item>
+      <title>Engineer và scientist</title>
+      <link>https://5kbps.io/posts/engineer-va-scientist/</link>
+      <pubDate>Sun, 29 Apr 2018 17:48:21 +0700</pubDate>
+      
+      <guid>https://5kbps.io/posts/engineer-va-scientist/</guid>
+      <description>“I am not a visionary. I&amp;rsquo;m an engineer. I&amp;rsquo;m happy with the people who are wandering around looking at the stars but I am looking at the ground and I want to fix the pothole before I fall in.” ― Linus Torvalds
+Chuyện ngày hôm ấy Đợt vừa rồi lúc còn làm việc ở công ty C nọ, vô tình mình được một dịp phỏng vấn một bạn fresher apply vào một vị trí của team data.</description>
+    </item>
+    
+  </channel>
+</rss>
